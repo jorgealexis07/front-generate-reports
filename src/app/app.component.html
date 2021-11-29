@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div id="htmlData">
+      <h2>Reporte de asistencia</h2>
+      <table class="table table-bordered mt-4">
+        <tr class="table-primary">
+          <th>DNI</th>
+          <th>Name</th>
+          <th>A_P</th>
+          <th>A_M</th>
+          <th>Hora_entrada</th>
+          <th>Hora_salida</th>
+          <th>Fecha</th>
+
+        </tr>
+        <tr *ngFor="let d_e of DATOS_EMPLEADOS">
+          <th>{{d_e.dni}}</th>
+          <td>{{d_e.name}}</td>
+          <td>{{d_e.ap}}</td>
+          <td>{{d_e.am}}</td>
+          <td>{{d_e.H_E}}</td>
+          <td>{{d_e.H_S}}</td>
+          <td>{{d_e.Date}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<div align="center">
+  <button class="btn col col-lg-9 btn-danger btn-block ml-4" (click)="downloadPDF()">Download PDF</button>
+</div>
+
