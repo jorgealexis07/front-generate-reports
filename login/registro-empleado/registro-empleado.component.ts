@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-// @ts-ignore
+import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
+
 
 @Component({
   selector: 'app-registro-empleado',
@@ -8,8 +9,32 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class RegistroEmpleadoComponent implements OnInit {
+  Formulario2 = new FormGroup(
+    {
+
+      correo: new FormControl('',[Validators.required, Validators.email]),
+      password: new FormControl('',
+        [
+          Validators.required,
+          Validators.minLength(5),
+          Validators.pattern('([A-Z]+[0-9])')
+        ]),
+    }
+  );
+
+
   constructor() {
   }
+
+
+  get correo():any{
+    return this.Formulario2.get('correo');
+  }
+  get password():any{
+    return this.Formulario2.get('password');
+  }
+
+
   ngOnInit() {
   }
 

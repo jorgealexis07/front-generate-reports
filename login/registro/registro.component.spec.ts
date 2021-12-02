@@ -1,9 +1,7 @@
-// @ts-ignore
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RegistroComponent } from './registro.component';
 
-// @ts-ignore
 describe('RegistroComponent', () => {
   let component: RegistroComponent;
   let fixture: ComponentFixture<RegistroComponent>;
@@ -21,7 +19,6 @@ describe('RegistroComponent', () => {
     fixture.detectChanges();
   });
 
-  // @ts-ignore
   it('should create', () => {
     expect(component).toBeTruthy();
   });

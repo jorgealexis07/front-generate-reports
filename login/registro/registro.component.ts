@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {DataService} from './data.service';
 import {registrointerface, municipiosinterface} from './interface-registro'
 import {stringify} from "@angular/compiler/src/util";
+import {FormControl, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 
 
 @Component({
@@ -15,6 +16,47 @@ export class RegistroComponent implements OnInit {
   public seleccionarEstado: registrointerface = {id: 0, nombreE: 'Seleccionar estado'};
   public estados1: registrointerface[];
   public municipios1: municipiosinterface[];
+
+  //Formulario
+  Formulario1 = new FormGroup(
+    {
+      nombre: new FormControl('',[Validators.required]),
+      apellido_paterno: new FormControl('',Validators.required),
+      apellido_materno: new FormControl('',Validators.required),
+      correo: new FormControl('',[Validators.required, Validators.email]),
+      password: new FormControl('',
+                  [
+                              Validators.required,
+                              Validators.minLength(5),
+                              Validators.pattern('([A-Z]+[0-9])')
+                              ]),
+      telefono: new FormControl('', [Validators.required, Validators.pattern('[0-9]{10}')]),
+      CURP: new FormControl('', [Validators.required, Validators.pattern('^([A-Z&]|[a-z&]{1})([AEIOU]|[aeiou]{1})([A-Z&]|[a-z&]{1})([A-Z&]|[a-z&]{1})([0-9]{2})(0[1-9]|1[0-2])(0[1-9]|1[0-9]|2[0-9]|3[0-1])([HM]|[hm]{1})([AS|as|BC|bc|BS|bs|CC|cc|CS|cs|CH|ch|CL|cl|CM|cm|DF|df|DG|dg|GT|gt|GR|gr|HG|hg|JC|jc|MC|mc|MN|mn|MS|ms|NT|nt|NL|nl|OC|oc|PL|pl|QT|qt|QR|qr|SP|sp|SL|sl|SR|sr|TC|tc|TS|ts|TL|tl|VZ|vz|YN|yn|ZS|zs|NE|ne]{2})([^A|a|E|e|I|i|O|o|U|u]{1})([^A|a|E|e|I|i|O|o|U|u]{1})([^A|a|E|e|I|i|O|o|U|u]{1})([0-9]{2})$')])
+    }
+  );
+
+  get nombre():any{
+   return this.Formulario1.get('nombre');
+  }
+  get apellido_paterno():any{
+    return this.Formulario1.get('apellido_paterno');
+  }
+  get apellido_materno():any{
+    return this.Formulario1.get('apellido_materno');
+  }
+  get correo():any{
+    return this.Formulario1.get('correo');
+  }
+  get password():any{
+    return this.Formulario1.get('password');
+  }
+  get telefono():any{
+    return this.Formulario1.get('telefono');
+  }
+  get CURP():any{
+    return this.Formulario1.get('CURP')
+  }
+
 
 
   constructor(private dataSvc: DataService) {
@@ -41,8 +83,6 @@ export class RegistroComponent implements OnInit {
     this.id = varselect;
     this.municipios1 = this.dataSvc.getMunicipios().filter(item => item.id == this.id);
   }
-
-
 
 }
 
