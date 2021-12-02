@@ -11,6 +11,7 @@ export class AppComponent {
   DATOS_EMPLEADOS = [
     {
       dni: 1,
+      img: 'assets/user.png',
       name: 'Juan',
       ap: 'Perez',
       am: 'Rojas',
@@ -20,6 +21,7 @@ export class AppComponent {
     },
     {
       dni: 2,
+      img: 'assets/user1.png',
       name: 'Noemi',
       ap: 'Perez',
       am: 'Rojas',
@@ -29,6 +31,7 @@ export class AppComponent {
     },
     {
       dni: 3,
+      img: 'assets/user1.png',
       name: 'Denisse',
       ap: 'Arteaga',
       am: 'Romero',
@@ -38,6 +41,7 @@ export class AppComponent {
     },
     {
       dni: 4,
+      img: 'assets/user.png',
       name: 'Carlos',
       ap: 'Ortega',
       am: 'Fuentes',
@@ -47,6 +51,7 @@ export class AppComponent {
     },
     {
       dni: 5,
+      img: 'assets/user1.png',
       name: 'Michel',
       ap: 'Sosa',
       am: 'Fuentes',
@@ -56,6 +61,7 @@ export class AppComponent {
     },
     {
       dni: 6,
+      img: 'assets/user.png',
       name: 'Alan',
       ap: 'Diaz',
       am: 'Cortes',
@@ -73,12 +79,11 @@ export class AppComponent {
       scale: 3
     };
     html2canvas(DATA, options).then((canvas) => {
-
       const img = canvas.toDataURL('image/PNG');
 
       // Add image Canvas to PDF
       const bufferX = 15;
-      const bufferY = 15;
+      const bufferY = 25;
       const imgProps = (doc as any).getImageProperties(img);
       const pdfWidth = doc.internal.pageSize.getWidth() - 2 * bufferX;
       const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
