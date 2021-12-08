@@ -1,6 +1,9 @@
 import { Component } from '@angular/core';
 import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
+import { ObjDatEmpService, Datosinterface } from './serviceDatEmp/obj-dat-emp.service';
+import {Router} from '@angular/router';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,7 +11,7 @@ import html2canvas from 'html2canvas';
 })
 export class AppComponent {
   /*informacion fake para prueba*/
-  DATOS_EMPLEADOS = [
+/*  DATOS_EMPLEADOS = [
     {
       dni: 1,
       img: 'assets/user.png',
@@ -69,7 +72,12 @@ export class AppComponent {
       H_S: '17:00 hrs',
       Date: '28/10/2021',
     },
-  ];
+  ];*/
+
+  objDatEmp: Datosinterface [] = [];
+    constructor(private objdpservicio: ObjDatEmpService) {
+    this.objDatEmp = objdpservicio.recupera_obj_demp();
+  }
   // tslint:disable-next-line:typedef
   downloadPDF() {
     const DATA = document.getElementById('htmlData');

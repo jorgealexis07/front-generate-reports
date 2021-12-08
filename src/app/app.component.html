@@ -14,9 +14,9 @@
           <th>Fecha</th>
 
         </tr>
-        <tr *ngFor="let d_e of DATOS_EMPLEADOS">
-          <th>{{d_e.dni}}</th>
-          <td><img src="{{d_e.img}}" width="100" height="100"></td>
+        <tr *ngFor="let d_e of objDatEmp">
+          <td>{{d_e.dni}}</td>
+          <td><img src="{{d_e.img}}" width="50" height="50" alt="Persona1" class="card-img-top" ></td>
           <td>{{d_e.name}}</td>
           <td>{{d_e.ap}}</td>
           <td>{{d_e.am}}</td>
