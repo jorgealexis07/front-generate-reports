@@ -11,7 +11,7 @@ import {Router} from '@angular/router';
 })
 export class AppComponent {
   /*informacion fake para prueba*/
-/*  DATOS_EMPLEADOS = [
+  /*DATOS_EMPLEADOS = [
     {
       dni: 1,
       img: 'assets/user.png',

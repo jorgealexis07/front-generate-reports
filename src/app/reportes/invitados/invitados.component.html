@@ -1,0 +1,38 @@
+<div id="htmlData">
+  <div class="container">
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+      <h2 class="h2"> Lista de usuarios invitados</h2>
+    </div>
+
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+        <tr>
+          <th scope="col">DNI</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">A_P</th>
+          <th scope="col">A_M</th>
+          <th scope="col">Asunto</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let obj of invitados; let i = index">
+          <th scope="row">{{obj.DNI_INVITADO}}</th>
+          <td>{{obj.NOMRE_INVITADO}}</td>
+          <td>{{obj.AP_PATERNO}}</td>
+          <td>{{obj.AP_MATERNO}}</td>
+          <td>{{obj.ASUNTO}}</td>
+
+          <td class="text-center">
+
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div align="center">
+  <button class="btn col col-lg-9 btn-danger btn-block ml-4" (click)="downloadPDF()">Download PDF</button>
+</div>
